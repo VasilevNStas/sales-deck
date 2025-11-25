@@ -23,23 +23,22 @@
 \usepackage{csquotes}
 \usepackage{textcomp}
 \usepackage{iexec}
+  \iexec[quiet,log]{wget --quiet --no-check-certificate --no-clobber https://www.zerocracy.com/svg/logo.svg}
 \usepackage{svg}
 \usepackage{multicol}
 \usepackage{setspace}
 \usepackage[paperwidth=11in, paperheight=5in]{geometry}
 \usepackage{hyperref}
-  \hypersetup{colorlinks=true,allcolors=zblue}
+  \hypersetup{colorlinks=true,allcolors=blue}
 \usepackage{xcolor}
-  \definecolor{zred}{HTML}{ba1200}
-  \definecolor{zblue}{HTML}{33658a}
-  \definecolor{zblack}{HTML}{0c090d}
-  \definecolor{zgreen}{HTML}{558b6e}
-  \definecolor{zorange}{HTML}{d8a47f}
-  \definecolor{zbackground}{HTML}{f4f8fb}
+\usepackage{xcolor}
+  \iexec[quiet,log]{wget --quiet --no-check-certificate --no-clobber https://www.zerocracy.com/css/palette.css}
+  \iexec{grep -oE '\\.[a-zA-Z0-9_-]+\\\{color:.[0-9a-fA-F]+' < palette.css | sed -E 's/\\.([a-zA-Z0-9_-]+)\\\{color:.([0-9a-fA-F]+)/\\\\definecolor\{\\1\}\{HTML\}\{\\2\}/' > palette.tex}
+  \input{palette.tex}
 \usepackage{graphicx}
 \pagestyle{empty}
 
-\renewcommand\emph[1]{\textcolor{zred}{#1}}
+\renewcommand\emph[1]{\textcolor{red}{#1}}
 
 \newcommand\slide[1]{%
   \pagebreak\topskip0pt\vspace*{\fill}%
@@ -48,14 +47,12 @@
   \end{center}%
   \vspace*{\fill}}
 
-\pagecolor{zbackground}
+\pagecolor{white}
 
 \begin{document}
-\color{zblack}
+\color{black}
 
 \sffamily
-
-\iexec[quiet,log]{wget --no-check-certificate -nc --quiet https://www.zerocracy.com/svg/logo.svg}
 
 \slide{
   \includesvg[width=4em]{logo.svg} \par
@@ -124,9 +121,9 @@
 
 \slide{
   \centering
-  \newcommand\high{\textcolor{zgreen}{\(\bullet\)}}
-  \newcommand\soso{\textcolor{zorange}{\(\bullet\)}}
-  \newcommand\low{\textcolor{zred}{\(\bullet\)}}
+  \newcommand\high{\textcolor{green}{\(\bullet\)}}
+  \newcommand\soso{\textcolor{orange}{\(\bullet\)}}
+  \newcommand\low{\textcolor{red}{\(\bullet\)}}
   \newcommand\hico[2]{\parbox[b]{2.1em}{\centering\includegraphics[width=2em]{#1} \\ {\scriptsize #2\par}}}
   \newcommand\criteria[2]{\parbox{7em}{\raggedright #1 \\ {\scriptsize #2\par}\vspace{.4em}}}
   \newcommand\because[1]{\parbox{8em}{\small\raggedright #1\par}}
