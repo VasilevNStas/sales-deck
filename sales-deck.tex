@@ -1,58 +1,9 @@
 % SPDX-FileCopyrightText: Copyright (c) 2024-2025 Zerocracy
 % SPDX-License-Identifier: MIT
 
-\documentclass{article}
-\usepackage{fontspec}
-\usepackage{polyglossia}
-  \setmainlanguage{english}
-  \setmainfont{Noto Serif}
-  \setsansfont{Noto Sans}
-  \setmonofont{Noto Sans Mono}
-  \newfontfamily\cyrillicfont{Noto Serif}
-  \newfontfamily\cyrillicfontsf{Noto Sans}
-  \newfontfamily\cyrillicfonttt{Noto Sans Mono}
-\usepackage{microtype}
-\usepackage{tikz}
-  \usetikzlibrary{arrows}
-  \usetikzlibrary{arrows.meta}
-\usepackage[export]{adjustbox}
-\usepackage{anyfontsize}
-\usepackage{booktabs}
-\usepackage{tabularx}
-\usepackage{href-ul}
-\usepackage{csquotes}
-\usepackage{textcomp}
-\usepackage{iexec}
-  \iexec[quiet,log]{wget --quiet --no-check-certificate --no-clobber https://www.zerocracy.com/svg/logo.svg}
-\usepackage{svg}
-\usepackage{multicol}
-\usepackage{setspace}
-\usepackage[paperwidth=11in, paperheight=5in]{geometry}
-\usepackage{hyperref}
-  \hypersetup{colorlinks=true,allcolors=blue}
-\usepackage{xcolor}
-\usepackage{xcolor}
-  \iexec[quiet,log]{wget --quiet --no-check-certificate --no-clobber https://www.zerocracy.com/css/palette.css}
-  \iexec{grep -oE '\\.[a-zA-Z0-9_-]+\\\{color:.[0-9a-fA-F]+' < palette.css | sed -E 's/\\.([a-zA-Z0-9_-]+)\\\{color:.([0-9a-fA-F]+)/\\\\definecolor\{\\1\}\{HTML\}\{\\2\}/' > palette.tex}
-  \input{palette.tex}
-\usepackage{graphicx}
-\pagestyle{empty}
-
-\renewcommand\emph[1]{\textcolor{red}{#1}}
-
-\newcommand\slide[1]{%
-  \pagebreak\topskip0pt\vspace*{\fill}%
-  \begin{center}\LARGE%
-  #1
-  \end{center}%
-  \vspace*{\fill}}
-
-\pagecolor{steel}
+\documentclass{pitch}
 
 \begin{document}
-\color{black}
-
-\sffamily
 
 \slide{
   \includesvg[width=4em]{logo.svg} \par
@@ -91,16 +42,16 @@
   \begin{minipage}{0.65\textwidth}
   \centering
   \begin{tikzpicture}
-    [node distance=6em, every edge/.style={draw, line width=.1em, -{triangle 45}}]
+    [node distance=6em, every edge/.style={draw, line width=.1em, -{triangle 45}}, usd/.style={fill=steel, inner sep=-.2em}]
     \node[] (logo) {\includesvg[width=3em]{logo.svg}};
     \node[left of=logo] (you) {You};
     \node[above right of=logo] (c1) {\parbox{3em}{Java Dev}};
     \node[right of=logo] (c2) {\parbox{3em}{Python Dev}};
     \node[below right of=logo] (c3) {\parbox{3em}{C++ Dev}};
-    \path (you) edge (logo);
-    \path (logo) edge (c1);
-    \path (logo) edge (c2);
-    \path (logo) edge (c3);
+    \path (you) edge node[usd] {\$} (logo);
+    \path (logo) edge node[usd] {\$} (c1);
+    \path (logo) edge node[usd] {\$} (c2);
+    \path (logo) edge node[usd] {\$} (c3);
   \end{tikzpicture}
   \end{minipage}\hfill
   \begin{minipage}{0.34\textwidth}
@@ -157,22 +108,6 @@
   Result-based distributed teams are redefining software engineering ---
   and \emph{outperforming} every traditional model.}
 
-\slide{
-  \href{https://www.zerocracy.com}{zerocracy.com}
-  \par
-  \vspace*{1em}
-  {\large
-  \href{https://t.me/zerocracy}{Telegram}
-  \(\cdot\)
-  \href{https://www.linkedin.com/company/zerocracy/}{LinkedIn}
-  \(\cdot\)
-  \href{https://www.github.com/zerocracy/}{GitHub}
-  \(\cdot\)
-  \href{https://www.youtube.com/playlist?list=PLaIsQH4uc08yC4-991xt-SGSisteMtD_w}{YouTube}
-  \(\cdot\)
-  \href{https://instagram.com/zerocracy}{Instagram}
-  \par}
-  \vspace*{1em}
-  {\large\href{mailto:team@zerocracy.com}{team@zerocracy.com}\par}}
+\pitchFinal{}
 
 \end{document}
