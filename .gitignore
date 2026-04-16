@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: Copyright (c) 2024-2025 Zerocracy
+# SPDX-License-Identifier: MIT
+
 *-SAVE-ERROR
 *.aux
 *.bbl
@@ -7,10 +10,12 @@
 *.fdb_latexmk
 *.fls
 *.log
+*.otf
 *.out
 *.pyg
 *.run.xml
 *.synctex.gz
+*.ttf
 *.xcp
 *.zip
 .DS_Store

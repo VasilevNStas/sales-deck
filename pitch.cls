@@ -6,14 +6,28 @@
 \LoadClass{article}
 
 \RequirePackage{fontspec}
-\RequirePackage{polyglossia}
-  \setmainlanguage{english}
-  \setmainfont{Noto Serif}
-  \setsansfont{Noto Sans}
-  \setmonofont{Noto Sans Mono}
-  \newfontfamily\cyrillicfont{Noto Serif}
-  \newfontfamily\cyrillicfontsf{Noto Sans}
-  \newfontfamily\cyrillicfonttt{Noto Sans Mono}
+\RequirePackage{fontspec}
+  \newfontfamily\cambriaFont{Cambria}[
+    Path=./,
+    Extension=.ttf,
+    UprightFont=cambria-regular
+  ]
+  \newfontfamily\consolasFont{Consolas}[
+    Path=./,
+    Extension=.ttf,
+    UprightFont=consolas-regular
+  ]
+  \newfontfamily\candaraFont{Candara}[
+    Path=./,
+    Extension=.ttf,
+    UprightFont=candara-regular
+  ]
+  \newfontfamily\molotFont{Molot}[
+    Path=./,
+    Extension=.otf,
+    UprightFont=molot-regular
+  ]
+  \setmainfont{Cambria}
 \RequirePackage{microtype}
 \RequirePackage{tikz}
   \usetikzlibrary{arrows}
