@@ -6,7 +6,7 @@
 SHELL=bash
 .PHONY: all test clean
 
-all: sales-deck.pdf
+all: sales-deck.pdf founder-pitch.pdf
 
 cambria-regular.ttf:
 	wget -O $@ https://www.yegor256.com/fonts/cambria/$@
@@ -17,7 +17,7 @@ consolas-regular.ttf:
 molot-regular.otf:
 	wget -O $@ https://www.yegor256.com/fonts/molot/$@
 
-sales-deck.pdf: sales-deck.tex cambria-regular.ttf candara-regular.ttf consolas-regular.ttf molot-regular.otf
+%.pdf: %.tex cambria-regular.ttf candara-regular.ttf consolas-regular.ttf molot-regular.otf
 	latexmk -pdf -latexoption=-interaction=errorstopmode -latexoption=-halt-on-error $<
 
 clean:
