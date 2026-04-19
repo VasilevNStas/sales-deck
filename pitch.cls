@@ -24,7 +24,7 @@
   ]
   \newfontfamily\molotFont{Molot}[
     Path=./,
-    Extension=.otf,
+    Extension=.ttf,
     UprightFont=molot-regular
   ]
   \setmainfont{Cambria}
