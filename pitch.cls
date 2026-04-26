@@ -6,28 +6,9 @@
 \LoadClass{article}
 
 \RequirePackage{fontspec}
-\RequirePackage{fontspec}
-  \newfontfamily\cambriaFont{Cambria}[
-    Path=./,
-    Extension=.ttf,
-    UprightFont=cambria-regular
-  ]
-  \newfontfamily\consolasFont{Consolas}[
-    Path=./,
-    Extension=.ttf,
-    UprightFont=consolas-regular
-  ]
-  \newfontfamily\candaraFont{Candara}[
-    Path=./,
-    Extension=.ttf,
-    UprightFont=candara-regular
-  ]
-  \newfontfamily\molotFont{Molot}[
-    Path=./,
-    Extension=.ttf,
-    UprightFont=molot-regular
-  ]
-  \setmainfont{Cambria}
+  \setmainfont{PT Serif}
+  \setsansfont{PT Sans}
+  \setmonofont{PT Mono}
 \RequirePackage{microtype}
 \RequirePackage{tikz}
   \usetikzlibrary{arrows}

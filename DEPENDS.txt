@@ -45,6 +45,7 @@ hard microtype
 hard ncctools
 hard noto
 hard paralist
+hard paratype
 hard polyglossia
 hard preprint
 hard setspace
