@@ -22,8 +22,13 @@ jobs:
       - uses: yegor256/latexmk-action@0.20.0
         with:
           opts: -pdf
-          debs: fonts-noto-core fonts-noto-extra fonts-pt
+          debs: fonts-noto-core fonts-noto-extra
           depends: DEPENDS.txt
+          before: |
+            mkdir -p /usr/local/share/fonts
+            find /usr/local/texlive -path '*/paratype/*.ttf' -exec cp -t /usr/local/share/fonts/ {} +
+            find /usr/local/texlive -path '*/paratype/*.otf' -exec cp -t /usr/local/share/fonts/ {} +
+            fc-cache -f
       - run: |
           mkdir gh-pages
           cp sales-deck.pdf gh-pages
